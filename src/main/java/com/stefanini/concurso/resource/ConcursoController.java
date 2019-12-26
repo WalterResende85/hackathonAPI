@@ -13,47 +13,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stefanini.concurso.model.Candidato;
-import com.stefanini.concurso.service.CandidatoService;
-
-@RequestMapping("/candidatos")
+import com.stefanini.concurso.model.Concurso;
+import com.stefanini.concurso.service.ConcursoService;
+@RequestMapping("/concursos")
 @RestController
-public class CandidatoController {
-
+public class ConcursoController {
+	
 	@Autowired
-	CandidatoService candidatoService;
-
+	ConcursoService concursoService;
+	
 	@PostMapping
-	public ResponseEntity<Candidato> salvar(@RequestBody Candidato c) {
-		Candidato candidato = candidatoService.salvar(c);
-		return new ResponseEntity<>(candidato, HttpStatus.CREATED);
+	public ResponseEntity<Concurso> salvar(@RequestBody Concurso c){
+		Concurso concurso = concursoService.salvar(c);
+		return new ResponseEntity<>(concurso, HttpStatus.CREATED);
 	}
-
 	@PutMapping("/{id}")
-	public ResponseEntity<Candidato> atualizar(@PathVariable Long id, @RequestBody Candidato candidato) {
-		Candidato existente = candidatoService.buscar(id);
-		if (existente == null) {
+	public ResponseEntity<Concurso> atualizar(@PathVariable Long id, @RequestBody Concurso concurso){
+		Concurso existente = concursoService.buscar(id);
+		if(existente == null) {
 			return ResponseEntity.notFound().build();
 		}
-		BeanUtils.copyProperties(candidato, existente, "id");
-		existente = candidatoService.salvar(existente);
+		BeanUtils.copyProperties(concurso, existente, "id");
+		existente = concursoService.salvar(existente);
 		return ResponseEntity.ok(existente);
 	}
-
 	@GetMapping("/{id}")
-	public Candidato buscar(@PathVariable Long id) {
-		return candidatoService.buscar(id);
+	public Concurso buscar(@PathVariable Long id) {
+		return concursoService.buscar(id);
 	}
-
+	
 	@GetMapping
-	public Iterable<Candidato> buscarTodos() {
-		return candidatoService.buscarTodos();
+	public Iterable<Concurso> buscarTodos(){
+		return concursoService.buscarTodos();
 	}
-
 	@DeleteMapping("/{id}")
-	public void excluir(@PathVariable Long id) {
-		candidatoService.deletar(id);
-
+	public void deletar(@PathVariable Long id) {
+		concursoService.deletar(id);
 	}
-
 }

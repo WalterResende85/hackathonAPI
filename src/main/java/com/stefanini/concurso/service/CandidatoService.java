@@ -1,10 +1,12 @@
 package com.stefanini.concurso.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.stefanini.concurso.model.Candidato;
 import com.stefanini.concurso.repository.CandidatoRepository;
 
+@Service
 public class CandidatoService {
 
 	@Autowired
