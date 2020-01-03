@@ -1,7 +1,6 @@
 package com.stefanini.concurso.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,8 +19,16 @@ public class Concurso implements Serializable {
 	private String nome;
 	@Column(name = "NUMERODEVAGAS")
 	private Integer numeroDeVagas;
-	@Column(name = "CANDIDATOS")
-	private ArrayList<Candidato> candidatos;
+
+	public Concurso() {
+
+	}
+
+	public Concurso(String nome, Integer numeroDeVagas) {
+		super();
+		this.nome = nome;
+		this.numeroDeVagas = numeroDeVagas;
+	}
 
 	public Long getId() {
 		return id;
@@ -45,14 +52,6 @@ public class Concurso implements Serializable {
 
 	public void setNumeroDeVagas(Integer numeroDeVagas) {
 		this.numeroDeVagas = numeroDeVagas;
-	}
-
-	public ArrayList<Candidato> getCandidatos() {
-		return candidatos;
-	}
-
-	public void setCandidatos(ArrayList<Candidato> candidatos) {
-		this.candidatos = candidatos;
 	}
 
 }

@@ -30,6 +30,16 @@ public class Candidato implements Serializable {
 	public Candidato() {
 
 	}
+	
+
+	public Candidato(String nome, String cpf, String cidade, Double nota) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.cidade = cidade;
+		this.nota = nota;
+	}
+
 
 	public Candidato(Long id, String nome, String cpf, String cidade, Double nota, boolean aprovado) {
 		super();
@@ -88,5 +98,5 @@ public class Candidato implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
 }
