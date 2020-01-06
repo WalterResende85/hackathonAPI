@@ -38,7 +38,7 @@ public class CandidatoController {
 		if (existente == null) {
 			return ResponseEntity.notFound().build();
 		}
-		BeanUtils.copyProperties(dto.tansformarParaCandidatoDTO(), existente, "id");
+		BeanUtils.copyProperties(dto.tansformarParaCandidatoDTO(), existente);
 		existente = candidatoService.salvar(existente);
 		return ResponseEntity.ok(existente);
 	}

@@ -3,14 +3,14 @@ package com.stefanini.concurso.DTO;
 import com.stefanini.concurso.model.Candidato;
 
 public class CandidatoDTO {
+	private Long idCandidato;
 	private String nome;
 	private String cpf;
 	private String cidade;
-	
 
 	public Candidato tansformarParaCandidatoDTO() {
 
-		return new Candidato(nome, cpf, cidade);
+		return new Candidato(idCandidato, nome, cpf, cidade);
 	}
 
 	public String getNome() {
@@ -37,5 +37,12 @@ public class CandidatoDTO {
 		this.cidade = cidade;
 	}
 
-	
+	public Long getIdCandidato() {
+		return idCandidato;
+	}
+
+	public void setIdCandidato(Long idCandidato) {
+		this.idCandidato = idCandidato;
+	}
+
 }
