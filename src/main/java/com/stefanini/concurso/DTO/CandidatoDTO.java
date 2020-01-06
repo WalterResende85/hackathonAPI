@@ -6,11 +6,11 @@ public class CandidatoDTO {
 	private String nome;
 	private String cpf;
 	private String cidade;
-	private Double nota;
+	
 
 	public Candidato tansformarParaCandidatoDTO() {
 
-		return new Candidato(nome, cpf, cidade, nota);
+		return new Candidato(nome, cpf, cidade);
 	}
 
 	public String getNome() {
@@ -37,12 +37,5 @@ public class CandidatoDTO {
 		this.cidade = cidade;
 	}
 
-	public Double getNota() {
-		return nota;
-	}
-
-	public void setNota(Double nota) {
-		this.nota = nota;
-	}
-
+	
 }

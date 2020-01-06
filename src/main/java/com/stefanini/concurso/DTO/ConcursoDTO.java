@@ -4,10 +4,11 @@ import com.stefanini.concurso.model.Concurso;
 
 public class ConcursoDTO {
 	private String nome;
-	private Integer numeroDeVagas;
+	private Integer quantidadeVagas;
+	
 
 	public Concurso transformarParaConcursoDTO() {
-		return new Concurso(nome, numeroDeVagas);
+		return new Concurso(nome, quantidadeVagas);
 	}
 
 	public String getNome() {
@@ -18,12 +19,16 @@ public class ConcursoDTO {
 		this.nome = nome;
 	}
 
-	public Integer getNumeroDeVagas() {
-		return numeroDeVagas;
+	public Integer getQuantidadeVagas() {
+		return quantidadeVagas;
 	}
 
-	public void setNumeroDeVagas(Integer numeroDeVagas) {
-		this.numeroDeVagas = numeroDeVagas;
+	public void setQuantidadeVagas(Integer quantidadeVagas) {
+		this.quantidadeVagas = quantidadeVagas;
 	}
+
+	
+
+
 
 }

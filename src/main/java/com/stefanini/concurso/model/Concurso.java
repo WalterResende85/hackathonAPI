@@ -13,25 +13,32 @@ public class Concurso implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID_CONCURSO")
+	private Long idConcurso;
 	@Column(name = "NOME")
 	private String nome;
-	@Column(name = "NUMERODEVAGAS")
-	private Integer numeroDeVagas;
+	@Column(name = "QUANTIDADE_VAGAS")
+	private Integer quantidadeVagas;
 
 	public Concurso() {
 
 	}
 
-	public Concurso(String nome, Integer numeroDeVagas) {
+	public Concurso(String nome, Integer quantidadeVagas) {
 		super();
 		this.nome = nome;
-		this.numeroDeVagas = numeroDeVagas;
+		this.quantidadeVagas = quantidadeVagas;
+	}
+	
+	
+
+	public Long getIdConcurso() {
+		return idConcurso;
 	}
 
-	public Long getId() {
-		return id;
+	public void setIdConcurso(Long idConcurso) {
+		this.idConcurso = idConcurso;
 	}
 
 	public String getNome() {
@@ -42,16 +49,16 @@ public class Concurso implements Serializable {
 		this.nome = nome;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Integer getQuantidadeVagas() {
+		return quantidadeVagas;
 	}
 
-	public Integer getNumeroDeVagas() {
-		return numeroDeVagas;
+	public void setQuantidadeVagas(Integer quantidadeVagas) {
+		this.quantidadeVagas = quantidadeVagas;
 	}
 
-	public void setNumeroDeVagas(Integer numeroDeVagas) {
-		this.numeroDeVagas = numeroDeVagas;
-	}
+	
+
+	
 
 }

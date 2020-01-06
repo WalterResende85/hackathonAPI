@@ -13,42 +13,35 @@ public class Candidato implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID")
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_CANDIDATO")
+	private Long idCandidato;
 	@Column(name = "NOME")
 	private String nome;
 	@Column(name = "CPF")
 	private String cpf;
 	@Column(name = "CIDADE")
 	private String cidade;
-	@Column(name = "NOTA")
-	private Double nota;
-	@Column(name = "APROVADO")
-	private boolean aprovado;
 
 	public Candidato() {
 
 	}
-	
 
-	public Candidato(String nome, String cpf, String cidade, Double nota) {
+	public Candidato(String nome, String cpf, String cidade) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.cidade = cidade;
-		this.nota = nota;
+
 	}
 
-
-	public Candidato(Long id, String nome, String cpf, String cidade, Double nota, boolean aprovado) {
+	public Candidato(Long id, String nome, String cpf, String cidade) {
 		super();
-		this.id = id;
+		this.idCandidato = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.cidade = cidade;
-		this.nota = nota;
-		this.aprovado = aprovado;
+
 	}
 
 	public String getNome() {
@@ -67,22 +60,6 @@ public class Candidato implements Serializable {
 		this.cidade = cidade;
 	}
 
-	public Double getNota() {
-		return nota;
-	}
-
-	public void setNota(Double nota) {
-		this.nota = nota;
-	}
-
-	public boolean isAprovado() {
-		return aprovado;
-	}
-
-	public void setAprovado(boolean aprovado) {
-		this.aprovado = aprovado;
-	}
-
 	public String getCpf() {
 		return cpf;
 	}
@@ -91,12 +68,14 @@ public class Candidato implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getIdCandidato() {
+		return idCandidato;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdCandidato(Long idCandidato) {
+		this.idCandidato = idCandidato;
 	}
+
 	
+
 }
