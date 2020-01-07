@@ -10,9 +10,9 @@ public class ConcursoCandidatoKey implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Column(name = "ID_CANDIDATO")
-	private Long id_candidato;
+	private Long idCandidato;
 	@Column(name = "ID_CONCURSO")
-	private Long id_Concurso;
+	private Long idConcurso;
 
 	public ConcursoCandidatoKey() {
 
@@ -20,32 +20,34 @@ public class ConcursoCandidatoKey implements Serializable {
 
 	public ConcursoCandidatoKey(Long id_candidato, Long id_Concurso) {
 		super();
-		this.id_candidato = id_candidato;
-		this.id_Concurso = id_Concurso;
+		this.idCandidato = id_candidato;
+		this.idConcurso = id_Concurso;
 	}
 
-	public Long getId_candidato() {
-		return id_candidato;
+	
+
+	public Long getIdCandidato() {
+		return idCandidato;
 	}
 
-	public void setId_candidato(Long id_candidato) {
-		this.id_candidato = id_candidato;
+	public void setIdCandidato(Long idCandidato) {
+		this.idCandidato = idCandidato;
 	}
 
-	public Long getId_Concurso() {
-		return id_Concurso;
+	public Long getIdConcurso() {
+		return idConcurso;
 	}
 
-	public void setId_Concurso(Long id_Concurso) {
-		this.id_Concurso = id_Concurso;
+	public void setIdConcurso(Long idConcurso) {
+		this.idConcurso = idConcurso;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id_Concurso == null) ? 0 : id_Concurso.hashCode());
-		result = prime * result + ((id_candidato == null) ? 0 : id_candidato.hashCode());
+		result = prime * result + ((idConcurso == null) ? 0 : idConcurso.hashCode());
+		result = prime * result + ((idCandidato == null) ? 0 : idCandidato.hashCode());
 		return result;
 	}
 
@@ -58,15 +60,15 @@ public class ConcursoCandidatoKey implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ConcursoCandidatoKey other = (ConcursoCandidatoKey) obj;
-		if (id_Concurso == null) {
-			if (other.id_Concurso != null)
+		if (idConcurso == null) {
+			if (other.idConcurso != null)
 				return false;
-		} else if (!id_Concurso.equals(other.id_Concurso))
+		} else if (!idConcurso.equals(other.idConcurso))
 			return false;
-		if (id_candidato == null) {
-			if (other.id_candidato != null)
+		if (idCandidato == null) {
+			if (other.idCandidato != null)
 				return false;
-		} else if (!id_candidato.equals(other.id_candidato))
+		} else if (!idCandidato.equals(other.idCandidato))
 			return false;
 		return true;
 	}
