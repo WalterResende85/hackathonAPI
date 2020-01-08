@@ -1,4 +1,4 @@
-package com.stefanini.concurso.resource;
+package com.stefanini.concurso.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.stefanini.concurso.DTO.ConcursoCandidatoDTO;
 import com.stefanini.concurso.DTO.ConcursoDTO;
 import com.stefanini.concurso.model.Concurso;
+import com.stefanini.concurso.service.ConcursoCandidatoService;
 import com.stefanini.concurso.service.ConcursoService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -24,11 +26,11 @@ import com.stefanini.concurso.service.ConcursoService;
 public class ConcursoController {
 
 	@Autowired
-	ConcursoService concursoService;
+	private ConcursoService concursoService;
 
 	@PostMapping
 	public ResponseEntity<Concurso> salvar(@RequestBody ConcursoDTO dto) {
-		Concurso concurso = concursoService.salvar(dto.transformarParaConcursoDTO());
+		Concurso concurso = concursoService.salvar(dto.transformarParaEntidade());
 		return new ResponseEntity<>(concurso, HttpStatus.CREATED);
 	}
 
@@ -38,11 +40,11 @@ public class ConcursoController {
 		if (existente == null) {
 			return ResponseEntity.notFound().build();
 		}
-		BeanUtils.copyProperties(dto.transformarParaConcursoDTO(), existente, "id");
+		BeanUtils.copyProperties(dto.transformarParaEntidade(), existente, "id");
 		existente = concursoService.salvar(existente);
 		return ResponseEntity.ok(existente);
 	}
-
+	
 	@GetMapping("/{id}")
 	public Concurso buscar(@PathVariable Long id) {
 		return concursoService.buscar(id);

@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.stefanini.concurso.DTO.CandidatoDTO;
+
 @Entity
 public class Candidato implements Serializable {
 
@@ -15,7 +17,7 @@ public class Candidato implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_CANDIDATO")
-	private Long idCandidato;
+	private Long id;
 	@Column(name = "NOME")
 	private String nome;
 	@Column(name = "CPF")
@@ -37,11 +39,14 @@ public class Candidato implements Serializable {
 
 	public Candidato(Long id, String nome, String cpf, String cidade) {
 		super();
-		this.idCandidato = id;
+		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.cidade = cidade;
 
+	}
+	public CandidatoDTO transformarParaCandidatoDTO() {
+		return new CandidatoDTO(id, nome, cpf, cidade);
 	}
 
 	public String getNome() {
@@ -68,13 +73,15 @@ public class Candidato implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public Long getIdCandidato() {
-		return idCandidato;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdCandidato(Long idCandidato) {
-		this.idCandidato = idCandidato;
+	public void setId(Long id) {
+		this.id = id;
 	}
+
+	
 
 	
 

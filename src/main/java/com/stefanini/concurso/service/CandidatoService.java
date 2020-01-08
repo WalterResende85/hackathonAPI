@@ -5,13 +5,17 @@ import org.springframework.stereotype.Service;
 
 import com.stefanini.concurso.model.Candidato;
 import com.stefanini.concurso.repository.CandidatoRepository;
+import com.stefanini.concurso.repository.ConcursoCandidatoRepository;
 
 @Service
 public class CandidatoService {
 
 	@Autowired
 	CandidatoRepository candidatoRepository;
-
+	
+	@Autowired
+	ConcursoCandidatoRepository concursoCandidatoRepository;
+	
 	public Candidato salvar(Candidato candidato) {
 		return candidatoRepository.save(candidato);
 	}
@@ -25,6 +29,7 @@ public class CandidatoService {
 	}
 
 	public void deletar(Long id) {
+		concursoCandidatoRepository.deleteAll(concursoCandidatoRepository.findByConcursoCandidatoKeyIdCandidato(id));
 		candidatoRepository.deleteById(id);
 	}
 

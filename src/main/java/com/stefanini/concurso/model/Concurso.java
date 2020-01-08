@@ -8,14 +8,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.stefanini.concurso.DTO.ConcursoDTO;
+
 @Entity
 public class Concurso implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_CONCURSO")
-	private Long idConcurso;
+	@Column(name = "ID_CONCURSO")
+	private Long id;
 	@Column(name = "NOME")
 	private String nome;
 	@Column(name = "QUANTIDADE_VAGAS")
@@ -30,15 +32,24 @@ public class Concurso implements Serializable {
 		this.nome = nome;
 		this.quantidadeVagas = quantidadeVagas;
 	}
-	
-	
 
-	public Long getIdConcurso() {
-		return idConcurso;
+	public Concurso(Long id, String nome, Integer quantidadeVagas) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.quantidadeVagas = quantidadeVagas;
 	}
 
-	public void setIdConcurso(Long idConcurso) {
-		this.idConcurso = idConcurso;
+	public ConcursoDTO tranformarParaDTO() {
+		return new ConcursoDTO(id, nome, quantidadeVagas);
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -56,9 +67,5 @@ public class Concurso implements Serializable {
 	public void setQuantidadeVagas(Integer quantidadeVagas) {
 		this.quantidadeVagas = quantidadeVagas;
 	}
-
-	
-
-	
 
 }

@@ -3,14 +3,25 @@ package com.stefanini.concurso.DTO;
 import com.stefanini.concurso.model.Candidato;
 
 public class CandidatoDTO {
-	private Long idCandidato;
+	private Long id;
 	private String nome;
 	private String cpf;
 	private String cidade;
 
-	public Candidato tansformarParaCandidatoDTO() {
+	public CandidatoDTO() {
+	}
 
-		return new Candidato(idCandidato, nome, cpf, cidade);
+	public CandidatoDTO(Long id, String nome, String cpf, String cidade) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.cidade = cidade;
+	}
+
+	public Candidato tansformarParaEntidade() {
+
+		return new Candidato(id, nome, cpf, cidade);
 	}
 
 	public String getNome() {
@@ -37,12 +48,12 @@ public class CandidatoDTO {
 		this.cidade = cidade;
 	}
 
-	public Long getIdCandidato() {
-		return idCandidato;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdCandidato(Long idCandidato) {
-		this.idCandidato = idCandidato;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

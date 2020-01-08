@@ -1,4 +1,4 @@
-package com.stefanini.concurso.resource;
+package com.stefanini.concurso.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class CandidatoController {
 
 	@PostMapping
 	public ResponseEntity<Candidato> salvar(@RequestBody CandidatoDTO dto) {
-		Candidato candidato = candidatoService.salvar(dto.tansformarParaCandidatoDTO());
+		Candidato candidato = candidatoService.salvar(dto.tansformarParaEntidade());
 		return new ResponseEntity<>(candidato, HttpStatus.CREATED);
 	}
 
@@ -38,7 +38,7 @@ public class CandidatoController {
 		if (existente == null) {
 			return ResponseEntity.notFound().build();
 		}
-		BeanUtils.copyProperties(dto.tansformarParaCandidatoDTO(), existente);
+		BeanUtils.copyProperties(dto.tansformarParaEntidade(), existente);
 		existente = candidatoService.salvar(existente);
 		return ResponseEntity.ok(existente);
 	}

@@ -22,9 +22,11 @@ public class ConcursoCandidatoService {
 		
 		public Iterable<ConcursoCandidatoDTO> buscarTodos() {
 			return concursoCandidatoRepository.buscarTodos();
-			//return null;
+			
 		}
-
+		public Iterable<ConcursoCandidatoDTO> buscarCandidatosPorconcurso(Long idConcurso){
+			return concursoCandidatoRepository.buscarCandidatosPorConcurso(idConcurso);
+		}
 		public void deletar(ConcursoCandidatoKey concursoCandidatoKey) {
 			concursoCandidatoRepository.deleteById(concursoCandidatoKey);
 		}

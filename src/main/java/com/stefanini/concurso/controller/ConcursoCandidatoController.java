@@ -1,4 +1,4 @@
-package com.stefanini.concurso.resource;
+package com.stefanini.concurso.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,7 +31,7 @@ public class ConcursoCandidatoController {
 	public ConcursoCandidatoDTO buscar(@PathVariable Long idCandidato, @PathVariable Long idConcurso) {
 		return concursoCandidatoService.buscar(new ConcursoCandidatoKey(idCandidato, idConcurso));
 	}
-
+	
 	@GetMapping
 	public Iterable<ConcursoCandidatoDTO> buscarTodos() {
 		return concursoCandidatoService.buscarTodos();
@@ -41,6 +41,11 @@ public class ConcursoCandidatoController {
 	public void deletar(@PathVariable Long idCandidato, @PathVariable Long idConcurso) {
 		concursoCandidatoService.deletar(new ConcursoCandidatoKey(idCandidato, idConcurso));
 
+	}
+	
+	@GetMapping("/{idConcurso}")
+	public Iterable<ConcursoCandidatoDTO> buscarCandidatosPorConcurso(@PathVariable Long idConcurso){
+		return concursoCandidatoService.buscarCandidatosPorconcurso(idConcurso);
 	}
 	
 
