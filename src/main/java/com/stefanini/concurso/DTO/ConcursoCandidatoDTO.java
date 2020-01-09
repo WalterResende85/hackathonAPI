@@ -33,13 +33,23 @@ public class ConcursoCandidatoDTO {
 		this.nota = nota;
 	}
 
-	public ConcursoCandidato tansformarParaEntidade() {
-		return new ConcursoCandidato(new ConcursoCandidatoKey(this.idCandidato, this.idConcurso), this.nota);
-
+	public ConcursoCandidatoDTO(Long idCandidato, Long idConcurso) {
+		super();
+		this.idCandidato = idCandidato;
+		this.idConcurso = idConcurso;
 	}
+
 	public ConcursoCandidatoDTO(Double nota) {
 		super();
 		this.nota = nota;
+	}
+
+	public ConcursoCandidatoDTO() {
+		super();
+	}
+
+	public ConcursoCandidato tansformarParaEntidade() {
+		return new ConcursoCandidato(new ConcursoCandidatoKey(this.idCandidato, this.idConcurso), this.nota);
 	}
 
 	public Long getIdCandidato() {

@@ -34,7 +34,6 @@ public class Candidato implements Serializable {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.cidade = cidade;
-
 	}
 
 	public Candidato(Long id, String nome, String cpf, String cidade) {
@@ -43,8 +42,8 @@ public class Candidato implements Serializable {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.cidade = cidade;
-
 	}
+
 	public CandidatoDTO transformarParaCandidatoDTO() {
 		return new CandidatoDTO(id, nome, cpf, cidade);
 	}
@@ -80,9 +79,5 @@ public class Candidato implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	
-
-	
 
 }
